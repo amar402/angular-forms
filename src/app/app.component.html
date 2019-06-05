@@ -1,0 +1,44 @@
+<div class="contianer-fluid">
+	<div class="" style="margin:3%;border:1px solid green;border-radius:8px">
+		<h1>Enrollment Form</h1>
+
+		<form action="" style="margin:5%" #userForm="ngForm">
+		Input data =>	{{userForm.value | json}}<hr/>
+     Model data => {{userData | json}}
+			<div class="form-group">
+				<label for="">name</label>
+          <input type="text" class="form-control" name="name" [ngModel]='userData.name'>
+        </div>
+
+        <div class="form-group">
+          <label for="">email</label>
+          <input type="email" class="form-control"name="email" [ngModel]='userData.email'>
+        </div>
+        <div class="form-group">
+          <label for="">phone</label>
+          <input type="tel" class="form-control" name="phone" [ngModel]='userData.phone'>
+        </div>
+        <span>Select technology  </span>
+        <select name="" id="" class="custom-select" name="topic" [ngModel]='userData.topic' >    
+          <option selected>I am intersted in</option>
+          <option *ngFor="let topic of topics" >{{topic}}</option>
+        </select>
+        <div class="mb-3">
+          <label for="">Time Preference</label>
+          <div class="form-check">
+            <input type="radio" name="timepreference" value="morning" class="form-check-input"  [ngModel]= 'userData.timepreference'>
+            <label for=""  class="form-check-label">Morning(9AM-12PM)</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="timepreference" [ngModel]= 'userData.timepreference' value="Evening" class="form-check-input">
+            <label for="" class="form-check-label">Evening(5 PM-8 PM)</label>
+          </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" name="subscribe" [ngModel]='userData.subscribe'>
+            <label for="" class="form-check-label">Send me newsletters</label>
+        </div>
+          <button class="btn btn-primary"  type="submit">Submit Task</button>
+      </form>
+    </div>
+ </div>
